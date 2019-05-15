@@ -415,7 +415,7 @@ class MainUI(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
                     with open(filename[0], 'rb') as current_book:
                         first_bytes = current_book.read(1024 * 32)  # First 32KB of the file
                         file_md5 = hashlib.md5(first_bytes).hexdigest()
-                except FileNotFoundError:
+                except OSError:
                     return
 
             # Remove any already open files
